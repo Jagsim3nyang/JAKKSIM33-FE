@@ -9,7 +9,7 @@ function Home() {
       <h1 className="text-5xl">작심삼냥</h1>
       <Link
         to={user ? "/problems" : "/login"}
-        className="text-4xl border-4 border-dotted border-orange py-2 px-6 rounded-xl"
+        className="text-4xl border-4 border-dotted border-orange100 py-2 px-6 rounded-xl"
       >
         문제 풀러 가기
       </Link>
@@ -22,7 +22,7 @@ function Home() {
         </Link>
         <Link
           to={user ? "/cats" : "/login"}
-          className="text-2xl border-4 border-orange py-2 px-6 rounded-lg"
+          className="text-2xl border-4 border-orange100 py-2 px-6 rounded-lg"
         >
           고양이
         </Link>

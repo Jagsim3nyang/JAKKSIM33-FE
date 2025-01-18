@@ -74,7 +74,7 @@ function Problems() {
         disabled={buttonDisabled}
         type="submit"
         className={cn(
-          "py-2 rounded-lg bg-orange text-white w-64 text-3xl",
+          "py-2 rounded-lg bg-orange100 text-white w-64 text-3xl",
           buttonDisabled && "bg-netural"
         )}
       >

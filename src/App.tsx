@@ -15,8 +15,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/problems" element={<Problems />} />
         <Route path="/records" element={<Records />} />
+        <Route path="/:id/submit" element={<SubmitCode />} />
       </Route>
-      <Route path="/:id/submit" element={<SubmitCode />} />
       <Route path="/bad-request" element={<BadRequest />} />
     </Routes>
   );

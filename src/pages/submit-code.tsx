@@ -30,7 +30,7 @@ function SubmitCode() {
   };
 
   return (
-    <div>
+    <main>
       <select value={language} onChange={(e) => setLanguage(e.target.value as LANGUAGE)}>
         {languages.map((lang) => (
           <option key={lang.value} value={lang.value}>
@@ -40,7 +40,7 @@ function SubmitCode() {
       </select>
       <CodeEditor language={language} value={code} onChange={setCode} />
       <button onClick={onSubmit}>Submit</button>
-    </div>
+    </main>
   );
 }
 

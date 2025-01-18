@@ -43,7 +43,7 @@ function Login() {
             <span>이메일</span>
             <input
               id="email"
-              className="border-2 border-orange py-2 px-3 rounded-lg text-lg"
+              className="border-2 border-orange100 py-2 px-3 rounded-lg text-lg"
               type="email"
               placeholder="이메일을 입력해주세요."
               value={user.email}
@@ -54,7 +54,7 @@ function Login() {
             <span>비밀번호</span>
             <input
               id="password"
-              className="border-2 border-orange py-2 px-3 rounded-lg text-lg"
+              className="border-2 border-orange100 py-2 px-3 rounded-lg text-lg"
               type="password"
               placeholder="비밀번호를 입력해주세요."
               value={user.password}
@@ -66,11 +66,14 @@ function Login() {
           <button
             disabled={buttonDisabled}
             type="submit"
-            className={cn("py-2 rounded-lg bg-orange text-white", buttonDisabled && "bg-netural")}
+            className={cn(
+              "py-2 rounded-lg bg-orange100 text-white",
+              buttonDisabled && "bg-netural"
+            )}
           >
             로그인
           </button>
-          <button type="button" className="py-2 rounded-lg border-2 border-orange bg-white">
+          <button type="button" className="py-2 rounded-lg border-2 border-orange100 bg-white">
             회원가입
           </button>
         </div>
