@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
-import SubmitCode from "./pages/submit-code";
+import SubmitCode from "./pages/problems/submit-code";
 import BadRequest from "./pages/bad-request";
 import Login from "./pages/login";
 import Layout from "./components/layout";
-import Problems from "./pages/problems";
+import Problems from "./pages/problems/problems";
 import Records from "./pages/records";
-import SolveProblem from "./pages/solve-problem";
+import SolveProblem from "./pages/problems/solve-problem";
+import Result from "./pages/problems/result";
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/problems" element={<Problems />} />
         <Route path="/records" element={<Records />} />
+        <Route path="/problems" element={<Problems />} />
         <Route path="problems/submit/:id" element={<SubmitCode />} />
+        <Route path="problems/results/:id" element={<Result />} />
       </Route>
       <Route path="/problems/solve/:id" element={<SolveProblem />} />
       <Route path="/bad-request" element={<BadRequest />} />

@@ -5,14 +5,12 @@ function NavBar() {
   const { id } = useParams();
   const { pathname } = useLocation();
 
-  const isSolvePage = pathname.includes("solve");
-
   return (
     <nav className="space-x-4">
       <Link
         className={cn(
           "border-2 border-orange100 rounded-lg py-2 px-3",
-          isSolvePage && "bg-orange200 text-white"
+          pathname.includes("solve") && "bg-orange200 text-white"
         )}
         to={`/problems/solve/${id}`}
       >
@@ -21,11 +19,20 @@ function NavBar() {
       <Link
         className={cn(
           "border-2 border-orange100 rounded-lg py-2 px-3",
-          !isSolvePage && "bg-orange200 text-white"
+          pathname.includes("submit") && "bg-orange200 text-white"
         )}
         to={`/problems/submit/${id}`}
       >
         제출
+      </Link>
+      <Link
+        className={cn(
+          "border-2 border-orange100 rounded-lg py-2 px-3",
+          pathname.includes("results") && "bg-orange200 text-white"
+        )}
+        to={`/problems/results/${id}`}
+      >
+        제출 결과
       </Link>
     </nav>
   );

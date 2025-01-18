@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CodeEditor from "@/components/code-editor";
 
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { LANGUAGE } from "@/constants/code-editor";
 import NavBar from "@/components/problems/nav-bar";
 
@@ -10,6 +10,8 @@ function SubmitCode() {
 
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   const problemId = parseInt(id as string);
 
   if (isNaN(problemId)) {
@@ -17,7 +19,9 @@ function SubmitCode() {
   }
 
   const onSubmit = () => {
-    console.log("Code:", code);
+    navigate(`/problems/results/${problemId}`, {
+      state: { codeLength: code.length, submitId: 1, result: true, language: LANGUAGE.PYTHON },
+    });
   };
 
   return (
