@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function Home() {
   const user = useUserStore((state) => state.user);
-  console.log(user);
 
   return (
     <main className="gap-10">
