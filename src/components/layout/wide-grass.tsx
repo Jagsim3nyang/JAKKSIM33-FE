@@ -1,5 +1,5 @@
 import SleepCat from "./sleep-cat";
-import sam from "@/assets/sam.png";
+import samWalk from "@/assets/sam-walk.png";
 import WhiteCat from "./white-cat";
 
 function WideGrass() {
@@ -14,7 +14,12 @@ function WideGrass() {
       <div className="w-10 h-1 bg-grass absolute right-[10%] top-1/2" />
       <SleepCat width={200} />
       <WhiteCat withoutFish width={200} />
-      <img src={sam} alt="고양이" width={200} className="absolute left-1/2 -translate-y-1/2 z-10" />
+      <img
+        src={samWalk}
+        alt="고양이"
+        width={200}
+        className="absolute left-1/2 -translate-y-1/2 z-10"
+      />
     </div>
   );
 }
