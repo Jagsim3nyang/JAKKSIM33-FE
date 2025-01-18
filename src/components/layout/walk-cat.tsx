@@ -37,7 +37,7 @@ function WalkCat() {
 
   return (
     <div className="absolute text-center -translate-y-1/2 z-10 transition-all" style={{ left }}>
-      <span className="text-2xl">LV.1 아기</span>
+      <span className="text-2xl">LV.5 다 큰 애기</span>
       <img
         src={cat}
         alt="고양이"
