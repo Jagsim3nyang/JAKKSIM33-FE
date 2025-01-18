@@ -1,6 +1,11 @@
+import Loading from "@/components/loading";
+import { METHOD } from "@/constants/api";
 import { PROBLEM_CATEGORY, PROBLEM_DIFFICULTY, PROBLEM_LANGUAGE } from "@/constants/problem";
+import { useFetch } from "@/hooks/use-fetch";
+import { ProblemResponseDTO } from "@/models/problem";
 import { cn } from "@/utils/cn";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const selects = [
   {
@@ -30,6 +35,8 @@ const selects = [
 ];
 
 function Problems() {
+  const { fetchData } = useFetch<{ [key: string]: string }, ProblemResponseDTO>();
+
   const [problem, setProblem] = useState<{
     [key: string]: string;
   }>({
@@ -37,6 +44,8 @@ function Problems() {
     language: "",
     difficulty: "",
   });
+
+  const navigate = useNavigate();
 
   const buttonDisabled =
     problem.category === "" || problem.language === "" || problem.difficulty === "";
@@ -49,38 +58,49 @@ function Problems() {
     });
   };
 
+  const onCreateProblem = async () => {
+    const res = await fetchData("/random-problem", problem, METHOD.POST);
+    if (res.status === 200) {
+      navigate(`/problems/solve/${res.data.problemId}`, { state: res.data });
+    }
+  };
+
   return (
-    <main className="gap-10">
-      <h1 className="text-5xl">문제 생성하기</h1>
-      <section className="flex flex-col gap-5">
-        {selects.map((select) => (
-          <select
-            key={select.name}
-            className="border border-black py-2 px-3 rounded-lg w-64 text-xl"
-            name={select.name}
-            value={problem[select.name]}
-            onChange={onChange}
-          >
-            <option value="">{select.placeholder}</option>
-            {select.options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.name}
-              </option>
-            ))}
-          </select>
-        ))}
-      </section>
-      <button
-        disabled={buttonDisabled}
-        type="submit"
-        className={cn(
-          "py-2 rounded-lg bg-orange100 text-white w-64 text-3xl",
-          buttonDisabled && "bg-netural"
-        )}
-      >
-        생성하기
-      </button>
-    </main>
+    <Loading>
+      <main className="gap-10">
+        <h1 className="text-5xl">문제 생성하기</h1>
+        <section className="flex flex-col gap-5">
+          {selects.map((select) => (
+            <select
+              key={select.name}
+              className="border border-black py-2 px-3 rounded-lg w-64 text-xl"
+              name={select.name}
+              value={problem[select.name]}
+              onChange={onChange}
+            >
+              <option value="">{select.placeholder}</option>
+              {select.options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.name}
+                </option>
+              ))}
+            </select>
+          ))}
+        </section>
+        <button
+          disabled={buttonDisabled}
+          type="submit"
+          className={cn(
+            "py-2 rounded-lg bg-orange100 text-white w-64 text-3xl",
+            buttonDisabled && "bg-netural",
+            !buttonDisabled && "hover:bg-orange200"
+          )}
+          onClick={onCreateProblem}
+        >
+          생성하기
+        </button>
+      </main>
+    </Loading>
   );
 }
 

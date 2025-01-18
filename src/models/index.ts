@@ -1,4 +1,4 @@
 export interface BaseResponseDTO<T> {
-  status: string;
+  status: number;
   data: T;
 }

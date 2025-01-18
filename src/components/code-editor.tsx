@@ -44,7 +44,7 @@ function CodeEditor({ language, value, onChange }: CodeEditorProps) {
     }
   }, [value]);
 
-  return <div ref={editorRef} style={{ height: "300px", width: "100%" }} />;
+  return <div ref={editorRef} style={{ height: "500px", width: "100%" }} />;
 }
 
 export default CodeEditor;

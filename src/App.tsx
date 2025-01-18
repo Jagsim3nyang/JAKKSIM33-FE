@@ -6,6 +6,7 @@ import Login from "./pages/login";
 import Layout from "./components/layout";
 import Problems from "./pages/problems";
 import Records from "./pages/records";
+import SolveProblem from "./pages/solve-problem";
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/problems" element={<Problems />} />
         <Route path="/records" element={<Records />} />
-        <Route path="/:id/submit" element={<SubmitCode />} />
+        <Route path="problems/submit/:id" element={<SubmitCode />} />
       </Route>
+      <Route path="/problems/solve/:id" element={<SolveProblem />} />
       <Route path="/bad-request" element={<BadRequest />} />
     </Routes>
   );

@@ -68,7 +68,8 @@ function Login() {
             type="submit"
             className={cn(
               "py-2 rounded-lg bg-orange100 text-white",
-              buttonDisabled && "bg-netural"
+              buttonDisabled && "bg-netural",
+              !buttonDisabled && "hover:bg-orange200"
             )}
           >
             로그인
