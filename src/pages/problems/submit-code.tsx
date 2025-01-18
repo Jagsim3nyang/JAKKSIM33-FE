@@ -36,7 +36,7 @@ function SubmitCode() {
   const onSubmit = async () => {
     const res = await fetchData(
       "/submit-solution",
-      { problemId, userCode: { code, language: "Python" } },
+      { problemId, userCode: { code, language: LANGUAGE.C } },
       METHOD.POST
     );
     console.log(res);
@@ -46,7 +46,7 @@ function SubmitCode() {
           codeLength: code.length,
           submitId: Math.floor(res.data.solvedAt),
           result: Boolean(res.data.result),
-          language: LANGUAGE.PYTHON,
+          language: LANGUAGE.C,
         },
       });
     }
