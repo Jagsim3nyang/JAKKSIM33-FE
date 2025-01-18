@@ -8,6 +8,7 @@ import Problems from "./pages/problems/problems";
 import Records from "./pages/records";
 import SolveProblem from "./pages/problems/solve-problem";
 import Result from "./pages/problems/result";
+import Cats from "./pages/cats";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/records" element={<Records />} />
+        <Route path="/cats" element={<Cats />} />
         <Route path="/problems" element={<Problems />} />
         <Route path="problems/submit/:id" element={<SubmitCode />} />
         <Route path="problems/results/:id" element={<Result />} />
