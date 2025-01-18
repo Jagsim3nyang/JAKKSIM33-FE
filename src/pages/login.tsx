@@ -33,11 +33,11 @@ function Login() {
   };
 
   return (
-    <main className="flex flex-col justify-center items-center h-screen gap-10 z-10 relative">
+    <main className="gap-10">
       <Link to="/" className="text-5xl">
         작심삼냥
       </Link>
-      <form onSubmit={onSubmit} className="flex flex-col gap-10 text-3xl w-96">
+      <form onSubmit={onSubmit} className="flex flex-col gap-10 text-3xl w-2/3 max-w-half">
         <div className="space-y-6">
           <label className="flex flex-col gap-1">
             <span>이메일</span>
@@ -70,7 +70,9 @@ function Login() {
           >
             로그인
           </button>
-          <button className="py-2 rounded-lg border-2 border-orange bg-white">회원가입</button>
+          <button type="button" className="py-2 rounded-lg border-2 border-orange bg-white">
+            회원가입
+          </button>
         </div>
       </form>
     </main>

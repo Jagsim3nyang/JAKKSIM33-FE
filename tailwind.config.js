@@ -10,6 +10,9 @@ export default {
         pink: "#FEDBEF",
         netural: "#D3D3D3",
       },
+      maxWidth: {
+        half: "680px",
+      },
     },
   },
   plugins: [],

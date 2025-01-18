@@ -6,7 +6,7 @@ function Home() {
   console.log(user);
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen gap-10">
+    <main className="gap-10">
       <h1 className="text-5xl">작심삼냥</h1>
       <Link
         to={user ? "/problems" : "/login"}

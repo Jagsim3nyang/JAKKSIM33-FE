@@ -19,6 +19,8 @@ body {
   font-family: "Ownglyph_ParkDaHyun", sans-serif;
 
   min-height: 100vh;
+  max-width: 1280px;
+  margin: 0 auto;
 
   input,
   textarea {
@@ -27,5 +29,15 @@ body {
     &::placeholder {
       color: #d3d3d3;
     }
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    z-index: 10;
   }
 }
