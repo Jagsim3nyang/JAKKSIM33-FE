@@ -23,4 +23,6 @@ body {
     "Segoe UI Emoji",
     "Segoe UI Symbol",
     sans-serif;
+
+  min-height: 100vh;
 }
