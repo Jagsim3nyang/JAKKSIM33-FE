@@ -36,16 +36,15 @@ function WalkCat() {
   }, []);
 
   return (
-    <img
-      src={cat}
-      alt="고양이"
-      width={150}
-      className={cn(
-        "absolute -translate-y-1/2 z-10 -scale-x-100 transition-all",
-        direction.current === "left" && "scale-x-100"
-      )}
-      style={{ left }}
-    />
+    <div className="absolute text-center -translate-y-1/2 z-10 transition-all" style={{ left }}>
+      <span className="text-2xl">LV.1 아기</span>
+      <img
+        src={cat}
+        alt="고양이"
+        width={150}
+        className={cn("-scale-x-100", direction.current === "left" && "scale-x-100")}
+      />
+    </div>
   );
 }
 

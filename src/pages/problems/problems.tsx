@@ -1,9 +1,9 @@
 import { mockApi } from "@/apis";
 import Loading from "@/components/loading";
-// import { METHOD } from "@/constants/api";
+import { METHOD } from "@/constants/api";
 import { PROBLEM_CATEGORY, PROBLEM_DIFFICULTY, PROBLEM_LANGUAGE } from "@/constants/problem";
-// import { useFetch } from "@/hooks/use-fetch";
-// import { ProblemResponseDTO } from "@/models/problem";
+import { useFetch } from "@/hooks/use-fetch";
+import { ProblemResponseDTO } from "@/models/problem";
 import { cn } from "@/utils/cn";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -36,7 +36,7 @@ const selects = [
 ];
 
 function Problems() {
-  // const { fetchData } = useFetch<{ [key: string]: string }, ProblemResponseDTO>();
+  const { fetchData } = useFetch<{ [key: string]: string }, ProblemResponseDTO>();
 
   const [problem, setProblem] = useState<{
     [key: string]: string;
@@ -60,14 +60,15 @@ function Problems() {
   };
 
   const onCreateProblem = async () => {
-    // const res = await fetchData("/random-problem", problem, METHOD.POST);
-    // if (res.status === 200) {
-    //   navigate(`/problems/solve/${res.data.problemId}`, { state: res.data });
-    // }
-    const res = await mockApi.post("/random-problem", problem);
+    const res = await fetchData("/random-problem", problem, METHOD.POST);
+    console.log(res);
     if (res.status === 200) {
       navigate(`/problems/solve/${res.data.problemId}`, { state: res.data });
     }
+    // const res = await mockApi.post("/random-problem", problem);
+    // if (res.status === 200) {
+    //   navigate(`/problems/solve/${res.data.problemId}`, { state: res.data });
+    // }
   };
 
   return (

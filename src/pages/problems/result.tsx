@@ -12,18 +12,18 @@ interface ResultResponseDTO {
 
 function Result() {
   const { id } = useParams();
-  const [result, setResult] = useState<ResultResponseDTO[]>([]);
+  // const [result, setResult] = useState<ResultResponseDTO[]>([]);
 
-  // const { state } = useLocation();
-  // if (!state) return <Navigate to="/bad-request" replace />;
+  const { state } = useLocation();
+  if (!state) return <Navigate to="/bad-request" replace />;
 
-  useEffect(() => {
-    (async () => {
-      const res = await mockApi.get(`/problem/results/${id}`);
-      console.log(res.data.list);
-      setResult(res.data.list);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const res = await mockApi.get(`/problem/results/${id}`);
+  //     console.log(res.data.list);
+  //     setResult(res.data.list);
+  //   })();
+  // }, []);
 
   return (
     <main>
@@ -41,7 +41,14 @@ function Result() {
           </tr>
         </thead>
         <tbody>
-          {result.map((res) => (
+          <tr className="table-row text-center">
+            <td className="table-cell border border-black py-2">{id}번</td>
+            <td className="table-cell border border-black py-2">{state.result ? "O" : "X"}</td>
+            <td className="table-cell border border-black py-2">{state.language}</td>
+            <td className="table-cell border border-black py-2">{state.codeLength} B</td>
+            <td className="table-cell border border-black py-2">{state.submitId}</td>
+          </tr>
+          {/* {result.map((res) => (
             <tr className="table-row text-center" key={res.submitId}>
               <td className="table-cell border border-black py-2">{id}번</td>
               <td className="table-cell border border-black py-2">{res.result ? "O" : "X"}</td>
@@ -49,7 +56,7 @@ function Result() {
               <td className="table-cell border border-black py-2">{res.codeLength} B</td>
               <td className="table-cell border border-black py-2">{res.submitId}</td>
             </tr>
-          ))}
+          ))} */}
         </tbody>
       </table>
     </main>

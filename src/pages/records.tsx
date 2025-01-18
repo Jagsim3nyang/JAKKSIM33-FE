@@ -1,13 +1,13 @@
-import { mockApi } from "@/apis";
+// import { mockApi } from "@/apis";
 import Loading from "@/components/loading";
-// import { METHOD } from "@/constants/api";
-// import { useFetch } from "@/hooks/use-fetch";
-// import { RecordResponseDTO } from "@/models/record";
+import { METHOD } from "@/constants/api";
+import { useFetch } from "@/hooks/use-fetch";
+import { RecordResponseDTO } from "@/models/record";
 import { cn } from "@/utils/cn";
 import { useEffect, useState } from "react";
 
 function Records() {
-  // const { fetchData } = useFetch<unknown, RecordResponseDTO>();
+  const { fetchData } = useFetch<unknown, RecordResponseDTO>();
   const [records, setRecords] = useState({
     current_streak: 0,
     highest_streak: 0,
@@ -19,14 +19,14 @@ function Records() {
   const isMiddleStreak = currentStreak !== 1;
 
   useEffect(() => {
-    // (async () => {
-    //   const res = await fetchData("/daily-streak", undefined, METHOD.GET);
-    //   setRecords(res.data);
-    // })();
     (async () => {
-      const res = await mockApi.get("/daily-streak");
+      const res = await fetchData("/daily-streak", undefined, METHOD.GET);
       setRecords(res.data);
     })();
+    // (async () => {
+    //   const res = await mockApi.get("/daily-streak");
+    //   setRecords(res.data);
+    // })();
   }, []);
 
   return (
