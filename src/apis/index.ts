@@ -13,3 +13,7 @@ api.interceptors.request.use(async (config) => {
 
   return config;
 });
+
+export const mockApi = axios.create({
+  baseURL: import.meta.env.VITE_MOCK_URL,
+});

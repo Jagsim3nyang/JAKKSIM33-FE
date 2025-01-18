@@ -4,6 +4,7 @@ import CodeEditor from "@/components/code-editor";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { LANGUAGE } from "@/constants/code-editor";
 import NavBar from "@/components/problems/nav-bar";
+import { mockApi } from "@/apis";
 
 function SubmitCode() {
   const [code, setCode] = useState("");
@@ -18,10 +19,14 @@ function SubmitCode() {
     return <Navigate to="/bad-request" replace />;
   }
 
-  const onSubmit = () => {
-    navigate(`/problems/results/${problemId}`, {
-      state: { codeLength: code.length, submitId: 1, result: true, language: LANGUAGE.PYTHON },
-    });
+  const onSubmit = async () => {
+    // navigate(`/problems/results/${problemId}`, {
+    //   state: { codeLength: code.length, submitId: 1, result: true, language: LANGUAGE.PYTHON },
+    // });
+    const res = await mockApi.post(`/submit-code/${problemId}`, { code });
+    if (res.status === 200) {
+      navigate(`/problems/results/${problemId}`);
+    }
   };
 
   return (
