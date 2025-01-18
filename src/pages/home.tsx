@@ -6,7 +6,7 @@ function Home() {
 
   return (
     <main className="gap-10">
-      <h1 className="text-5xl">작심삼냥</h1>
+      <h1 className="text-8xl">작심삼냥</h1>
       <Link
         to={user ? "/problems" : "/login"}
         className="text-4xl border-4 border-dotted border-orange100 py-2 px-6 rounded-xl"

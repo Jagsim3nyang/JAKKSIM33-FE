@@ -14,7 +14,7 @@ function SleepCat() {
   }, []);
 
   return (
-    <div>
+    <>
       {show && (
         <img
           src={zz}
@@ -30,7 +30,7 @@ function SleepCat() {
         width={150}
         className="right-14 absolute -translate-y-1/3 z-10"
       />
-    </div>
+    </>
   );
 }
 
