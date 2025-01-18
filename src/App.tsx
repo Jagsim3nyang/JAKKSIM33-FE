@@ -19,10 +19,10 @@ function App() {
         <Route path="/records" element={<Records />} />
         <Route path="/cats" element={<Cats />} />
         <Route path="/problems" element={<Problems />} />
-        <Route path="problems/submit/:id" element={<SubmitCode />} />
-        <Route path="problems/results/:id" element={<Result />} />
+        <Route path="/problems/submit/:id" element={<SubmitCode />} />
+        <Route path="/problems/results/:id" element={<Result />} />
+        <Route path="/problems/solve/:id" element={<SolveProblem />} />
       </Route>
-      <Route path="/problems/solve/:id" element={<SolveProblem />} />
       <Route path="/bad-request" element={<BadRequest />} />
     </Routes>
   );

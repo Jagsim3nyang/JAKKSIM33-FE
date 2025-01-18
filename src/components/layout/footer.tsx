@@ -7,12 +7,12 @@ import WideGrass from "./wide-grass";
 function Footer() {
   const { pathname } = useLocation();
 
-  const isSubmit = pathname.includes("submit");
+  const isCloudShow = pathname.includes("submit") || pathname.includes("solve");
   const isWideGrass = pathname.includes("cats");
 
   return (
     <>
-      {!isSubmit && (
+      {!isCloudShow && (
         <>
           <img src={cloudLg} alt="작은 구름 이미지" width={200} className="fixed left-24 top-20" />
           <img src={cloudSm} alt="큰 구름 이미지" width={200} className="fixed right-20 top-40" />
